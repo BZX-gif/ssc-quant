@@ -1,0 +1,141 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#101411">
+  <meta name="description" content="A focused SSC CGL percentage and fraction speed-training lab. Practice, measure, and improve — offline and on your device.">
+  <title>SSC Percentage Speed Trainer — Calculation Speed Lab</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="app-shell">
+    <aside class="sidebar" aria-label="Main navigation">
+      <a class="brand" href="#dashboard-view" aria-label="Calculation Speed Lab home">
+        <span class="brand-mark">S<span>×</span></span>
+        <span class="brand-copy"><strong>CALCULATION</strong><small>SPEED LAB <i>SSC CGL</i></small></span>
+      </a>
+      <div class="side-label">WORKSPACE</div>
+      <nav class="nav-list">
+        <button class="nav-link active" data-view="dashboard"><span class="nav-icon">▦</span> Dashboard <span class="nav-dot"></span></button>
+        <button class="nav-link" data-view="training"><span class="nav-icon">◉</span> Training modes</button>
+        <button class="nav-link" data-view="atlas"><span class="nav-icon">⌘</span> Fraction atlas</button>
+      </nav>
+      <div class="sidebar-spacer"></div>
+      <section class="side-target" aria-label="Today's target">
+        <div class="side-target-icon">↗</div>
+        <div><strong>DAILY REP</strong><p>One focused session.<br>Then beat your best.</p></div>
+        <div class="target-progress"><span></span></div>
+        <small id="sidebar-tests">0 tests today</small>
+      </section>
+      <div class="sidebar-foot"><span class="status-dot"></span> LOCAL TRAINING · OFFLINE READY</div>
+    </aside>
+
+    <main class="main-content">
+      <header class="topbar">
+        <div class="breadcrumb"><span>SSC CGL</span><b>/</b><strong id="breadcrumb-current">Dashboard</strong></div>
+        <div class="topbar-right"><span class="offline-pill"><span></span> YOUR DATA STAYS ON DEVICE</span><button class="avatar" aria-label="Calculation Speed Lab profile">C</button></div>
+      </header>
+
+      <section id="dashboard-view" class="view">
+        <div class="page-heading">
+          <div><div class="eyebrow"><span class="eyebrow-line"></span> CALCULATION SPEED LAB <span class="eyebrow-date" id="today-date"></span></div>
+            <h1>Make speed<br>your <span>standard.</span></h1>
+            <p class="heading-copy">Train recognition. Lock in accuracy. Shave seconds off every answer.</p>
+          </div>
+          <div class="daily-ring" aria-label="Today's sessions"><div class="ring-outer"><div class="ring-inner"><strong id="ring-count">0</strong><span>TODAY</span></div></div><span class="ring-caption">sessions complete</span></div>
+        </div>
+
+        <div id="resume-banner" class="resume-banner hidden">
+          <div class="resume-symbol">↻</div><div><strong>SESSION IN PROGRESS</strong><p id="resume-copy">Your last test is ready to continue.</p></div>
+          <button id="resume-button" class="button button-small button-dark">RESUME <span>→</span></button><button id="discard-button" class="icon-button" aria-label="Discard saved session">×</button>
+        </div>
+
+        <section class="stats-grid" aria-label="Training statistics">
+          <article class="stat-card"><div class="stat-top"><span>TODAY'S TESTS</span><span class="stat-symbol">▤</span></div><strong id="stat-tests">0</strong><small>Keep the streak alive</small></article>
+          <article class="stat-card"><div class="stat-top"><span>BEST TODAY</span><span class="stat-symbol gold">✦</span></div><strong id="stat-best">—</strong><small id="stat-best-sub">Complete a test to set a mark</small></article>
+          <article class="stat-card"><div class="stat-top"><span>AVG. ACCURACY</span><span class="stat-symbol">◎</span></div><strong id="stat-accuracy">—<em>%</em></strong><small>Across today's sessions</small></article>
+          <article class="stat-card"><div class="stat-top"><span>AVG. PACE</span><span class="stat-symbol">↗</span></div><strong id="stat-pace">—</strong><small>Questions per minute</small></article>
+        </section>
+
+        <div class="section-heading"><div><div class="eyebrow">CHOOSE YOUR PACE</div><h2>Training modes</h2></div><button class="text-button" data-go="training">ALL MODES <span>→</span></button></div>
+        <section class="mode-grid" aria-label="Training mode options">
+          <article class="mode-card mode-normal">
+            <div class="mode-card-top"><span class="mode-tag"><i></i> BUILD THE BASE</span><span class="mode-index">01</span></div>
+            <div class="mode-icon icon-sprout">↗</div><h3>Normal</h3><p>Build a dependable foundation, one pattern at a time.</p>
+            <div class="mode-detail"><span>20 QUESTIONS</span><span>3–4 MIN / SECTION</span></div>
+            <label class="select-label" for="normal-section">PRACTICE SECTION</label><select id="normal-section" class="section-select"></select>
+            <button class="button button-quiet" data-start="normal">START NORMAL <span>→</span></button>
+          </article>
+          <article class="mode-card mode-hard">
+            <div class="mode-card-top"><span class="mode-tag"><i></i> PICK UP THE PACE</span><span class="mode-index">02</span></div>
+            <div class="mode-icon icon-bolt">ϟ</div><h3>Hard</h3><p>Sharper combinations and a tighter clock. Stay composed.</p>
+            <div class="mode-detail"><span>20 QUESTIONS</span><span>2:30 / SECTION</span></div>
+            <label class="select-label" for="hard-section">PRACTICE SECTION</label><select id="hard-section" class="section-select"></select>
+            <button class="button button-quiet" data-start="hard">START HARD <span>→</span></button>
+          </article>
+          <article class="mode-card mode-extreme">
+            <div class="mode-card-top"><span class="mode-tag"><i></i> SSC SPEED STANDARD</span><span class="mode-index">03</span></div>
+            <div class="mode-icon icon-target">◎</div><h3>Extreme <small>100 / 15</small></h3><p>100 mixed questions. Fifteen minutes. Accuracy under pressure.</p>
+            <div class="mode-detail"><span>100 QUESTIONS</span><span>15:00 COUNTDOWN</span></div>
+            <div class="mode-foot-note">TARGET PACE <strong>9.2 sec / question</strong></div>
+            <button class="button button-lime" data-start="extreme">ENTER EXTREME <span>→</span></button>
+          </article>
+          <article class="mode-card mode-god">
+            <div class="mode-card-top"><span class="mode-tag"><i></i> RECOGNITION SPRINT</span><span class="mode-index">04</span></div>
+            <div class="mode-icon icon-flame">✳</div><h3>God mode <small>100 / 5</small></h3><p>Rapid-fire recognition. Three seconds per question. Lock in.</p>
+            <div class="mode-detail"><span>100 QUESTIONS</span><span>05:00 COUNTDOWN</span></div>
+            <div class="mode-foot-note">TARGET PACE <strong>3.0 sec / question</strong></div>
+            <button class="button button-coral" data-start="god">START THE SPRINT <span>→</span></button>
+          </article>
+        </section>
+
+        <section class="bottom-grid">
+          <article class="workout-card"><div class="workout-mark">4<span>×</span>20</div><div class="workout-copy"><span class="workout-kicker">THE COMPLETE SESSION</span><h3>Full workout</h3><p>Four core sections. One complete speed report.</p></div><button class="button button-outline" data-start="workout">BEGIN WORKOUT <span>→</span></button></article>
+          <article class="targets-card"><div class="target-heading"><div><span class="workout-kicker">THE NEXT BENCHMARK</span><h3>Train with intent.</h3></div><span class="target-crosshair">⌖</span></div><div class="target-row"><span><i class="target-mark mark-normal"></i> NORMAL</span><strong>20–30 sec <small>/ question</small></strong></div><div class="target-row"><span><i class="target-mark mark-extreme"></i> EXTREME</span><strong>100 <small>/ 15 min</small></strong></div><div class="target-row"><span><i class="target-mark mark-god"></i> GOD MODE</span><strong>100 <small>/ 5 min</small></strong></div><div class="targets-note">Targets are a compass. Accuracy comes first.</div></article>
+        </section>
+        <section class="personal-bests"><div class="section-heading compact"><div><div class="eyebrow">YOUR RECORDS</div><h2>Personal bests</h2></div><span class="private-note">⌑ SAVED PRIVATELY ON THIS DEVICE</span></div><div class="pb-grid" id="pb-grid"></div></section>
+        <footer class="page-footer"><span>RECOGNITION → RECALL → SPEED → ACCURACY</span><span>CALCULATION SPEED LAB <b>·</b> BUILT FOR SSC CGL</span></footer>
+      </section>
+
+      <section id="training-view" class="view hidden">
+        <div class="page-heading page-heading-short"><div><div class="eyebrow"><span class="eyebrow-line"></span> YOUR PRACTICE FLOOR</div><h1>Choose the <span>drill.</span></h1><p class="heading-copy">Every start builds a fresh, verified question set from thousands of possible combinations.</p></div><div class="training-chip">✦ &nbsp; FRESH SETS, EVERY TIME</div></div>
+        <div class="training-intro"><div><span class="workout-kicker">FOUNDATION · 20 QUESTIONS</span><h2>Section practice</h2><p>Choose a pattern, then decide whether to learn or push the pace.</p></div><div class="segmented" role="group" aria-label="Section practice difficulty"><button class="seg-button active" data-difficulty="normal">NORMAL <small>3–4 min</small></button><button class="seg-button" data-difficulty="hard">HARD <small>2:30 min</small></button></div></div>
+        <div class="section-grid" id="section-grid"></div>
+        <div class="workout-wide"><div class="workout-wide-icon">4<span>×</span>20</div><div><span class="workout-kicker">FOUR SECTIONS · 80 QUESTIONS</span><h2>Full workout</h2><p>Percentage → fraction · Fraction → percentage · Percentage of a number · Reverse percentage</p></div><button class="button button-outline" data-start="workout">START FULL WORKOUT <span>→</span></button></div>
+        <div class="training-note"><span>✳</span> Answers are checked mathematically. Equivalent fractions are accepted; repeating percentages allow sensible rounding.</div>
+      </section>
+
+      <section id="atlas-view" class="view hidden">
+        <div class="page-heading page-heading-short"><div><div class="eyebrow"><span class="eyebrow-line"></span> QUICK RECALL REFERENCE</div><h1>The fraction <span>atlas.</span></h1><p class="heading-copy">The high-frequency conversions worth knowing on sight. A tilde marks a rounded repeating value.</p></div><div class="atlas-count"><strong>38</strong><span>CORE VALUES</span></div></div>
+        <div class="atlas-tools"><label class="search-wrap"><span>⌕</span><input type="search" id="atlas-search" placeholder="Find a percentage or fraction…" aria-label="Search fraction atlas"></label><span class="atlas-approx-note"><b>≈</b> repeating decimal, shown approximately</span></div>
+        <div class="atlas-table-wrap"><table class="atlas-table"><thead><tr><th>PERCENT</th><th>FRACTION</th><th>DECIMAL</th><th>VALUE</th></tr></thead><tbody id="atlas-body"></tbody></table><div id="atlas-empty" class="empty-state hidden">No matching conversion. Try another value.</div></div>
+        <div class="atlas-footnote"><span>✦</span><p>For repeating values, the fraction is exact. For example, <strong>33.33% ≈ ⅓</strong> — not exactly 33.33%.</p></div>
+      </section>
+
+      <section id="test-view" class="view hidden" aria-live="polite">
+        <div class="test-topline"><button id="exit-test" class="back-button"><span>←</span> EXIT TEST</button><span id="test-mode-label" class="test-mode-label">EXTREME SPEED DRILL</span><span id="test-section-label" class="test-section-label">MIXED ROUND</span></div>
+        <div class="test-heading"><div><div class="test-kicker"><span class="live-dot"></span> LIVE SESSION <span id="test-difficulty-label">EXTREME</span></div><h1 id="test-title">Extreme <span>100</span></h1></div><div class="timer-panel" id="timer-panel"><span class="timer-label">TIME REMAINING</span><strong id="timer-display" aria-live="off">15:00</strong><span class="timer-sub" id="timer-sub">15 minute target</span></div></div>
+        <div class="test-progress-meta"><strong id="question-counter">QUESTION 01 <span>/ 100</span></strong><span id="progress-percent">1% COMPLETE</span></div><div class="progress-track"><div class="progress-fill" id="progress-fill"></div><div class="progress-tick"></div></div>
+        <div class="test-layout"><div class="question-panel"><div class="question-meta"><span id="category-chip" class="category-chip">PERCENT → FRACTION</span><span class="question-number" id="question-number">Q. 01</span></div><h2 class="question-text" id="question-text">37.5% = ?</h2><p class="question-hint" id="question-hint">Give the fraction in its simplest form.</p><div class="answer-row"><label class="sr-only" for="answer-input">Your answer</label><input id="answer-input" type="text" inputmode="decimal" autocomplete="off" autocapitalize="off" spellcheck="false" placeholder="Type your answer…"><button id="submit-answer" class="button button-lime">SUBMIT <span>↵</span></button></div><div class="answer-bottom"><span><kbd>ENTER</kbd> TO SUBMIT</span><button id="skip-question" class="skip-button">SKIP QUESTION <span>↗</span></button></div></div>
+          <aside class="live-stats"><div class="live-stats-title">SESSION PULSE <span class="pulse-line"></span></div><div class="live-stat"><span>STREAK</span><strong><b id="streak-value">0</b> <small>in a row</small></strong></div><div class="live-stat"><span>ACCURACY</span><strong id="live-accuracy">—<small>%</small></strong></div><div class="live-stat"><span>CORRECT</span><strong id="live-correct">0<small> / 0 answered</small></strong></div><div class="live-tip"><span>✳</span><p id="live-tip">Recognize the pattern. Trust the shortcut.</p></div></aside></div>
+        <div class="test-bottomline"><span><span class="status-dot"></span> ANSWERS ARE SAVED AS YOU GO</span><span id="section-progress-label">MIXED SET · 100 QUESTIONS</span></div>
+      </section>
+
+      <section id="result-view" class="view hidden">
+        <div class="result-topline"><div class="eyebrow"><span class="eyebrow-line"></span> SESSION COMPLETE</div><span id="result-mode-tag" class="result-mode-tag">EXTREME · 100 / 15</span></div>
+        <div id="pb-celebration" class="pb-celebration hidden"><span>✦</span><strong>NEW PERSONAL BEST</strong><span>✦</span></div>
+        <div class="result-heading"><div><div class="result-label">YOUR RESULT</div><h1 id="result-score">82<span> / 100</span></h1><p id="result-verdict">A focused run. Review the patterns that cost you time.</p></div><div class="result-grade" id="result-grade"><span>ACCURACY</span><strong id="result-accuracy">82<small>%</small></strong></div></div>
+        <div class="result-stats-grid"><div class="result-stat"><span>CORRECT</span><strong id="result-correct">82</strong></div><div class="result-stat"><span>WRONG</span><strong id="result-wrong">13</strong></div><div class="result-stat"><span>SKIPPED</span><strong id="result-skipped">5</strong></div><div class="result-stat"><span>TOTAL TIME</span><strong id="result-time">14:37</strong></div><div class="result-stat"><span>AVG / QUESTION</span><strong id="result-average">8.77<small> sec</small></strong></div><div class="result-stat"><span>PACE</span><strong id="result-qpm">6.85<small> q/min</small></strong></div></div>
+        <div class="result-analysis-grid"><article class="analysis-card"><div class="analysis-title"><div><span class="workout-kicker">PACE PROFILE</span><h2>Speed analysis</h2></div><span class="analysis-icon">◷</span></div><div class="speed-row"><span>FASTEST ANSWER</span><strong id="result-fastest">1.9 sec</strong></div><div class="speed-row"><span>AVERAGE ANSWER</span><strong id="result-avg-time">8.77 sec</strong></div><div class="speed-row"><span>SLOWEST ANSWER</span><strong id="result-slowest">18.4 sec</strong></div><div class="speed-row"><span id="result-target-label">15-MINUTE TARGET</span><strong id="result-target">—</strong></div></article><article class="analysis-card category-analysis"><div class="analysis-title"><div><span class="workout-kicker">FACTUAL BREAKDOWN</span><h2>Pattern accuracy</h2></div><span class="analysis-icon">⌁</span></div><div id="category-results" class="category-results"></div><p id="weak-pattern" class="weak-pattern"></p></article></div>
+        <details class="review-details"><summary><span>REVIEW ANSWERS</span><span id="review-count">0 questions</span><b>+</b></summary><div id="answer-review" class="answer-review"></div></details>
+        <div class="result-actions"><button id="retry-test" class="button button-lime">RUN IT BACK <span>↻</span></button><button id="home-button" class="button button-outline">BACK TO DASHBOARD</button></div>
+      </section>
+
+      <div id="toast" class="toast" role="status" aria-live="polite"></div>
+    </main>
+  </div>
+  <dialog id="exit-dialog" class="confirm-dialog"><form method="dialog"><button class="dialog-x" value="cancel" aria-label="Close">×</button><span class="dialog-icon">Ⅱ</span><div class="workout-kicker">PAUSE THE CLOCK</div><h2>Leave this session?</h2><p>Your answers are saved. You can resume this test from the dashboard.</p><div class="dialog-actions"><button class="button button-outline" value="cancel">KEEP GOING</button><button id="confirm-exit" class="button button-dark" value="confirm">SAVE &amp; EXIT</button></div></form></dialog>
+  <script src="script.js" defer></script>
+</body>
+</html>

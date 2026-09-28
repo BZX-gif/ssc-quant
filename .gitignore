@@ -1,0 +1,17 @@
+# OS/editor files
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# Dependencies and generated output
+node_modules/
+dist/
+build/
+coverage/
+
+# Local test artifacts
+*.log
+*.tmp
